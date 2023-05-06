@@ -10,6 +10,8 @@ feedbackForm.addEventListener('submit', submitFuntion);
 // (key for the storage "feedback-form-state")
 
 function inputFunction(event) {
+  const { currentTarget } = event;
+  if (!currentTarget) return;
   const {
     elements: { email, message },
   } = event.currentTarget;
@@ -47,8 +49,11 @@ function updatePageFields() {
   const parsedStorageData = JSON.parse(storageData);
   const email = feedbackForm.elements.email;
   const message = feedbackForm.elements.message;
-  email.value = parsedStorageData.email || '';
-  message.value = parsedStorageData.message || '';
+  if (email && message) {
+    email.value = parsedStorageData?.email ?? '';
+    message.value = parsedStorageData?.message ?? '';
+  }
 }
 
 updatePageFields();
+

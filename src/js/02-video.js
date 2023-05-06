@@ -11,4 +11,4 @@ function saveCurrentTime(currentTime) {
 }
 
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time' || 0))
+player.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0)
