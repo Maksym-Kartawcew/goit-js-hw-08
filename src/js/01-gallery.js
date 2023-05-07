@@ -18,7 +18,7 @@ const galleryItem = galleryItems.map( (item) =>
 galleryUl.innerHTML = galleryItem;
 
 
-let lightbox = new SimpleLightbox('.gallery__link', {
+const lightbox = new SimpleLightbox('.gallery__link', {
     captionsData: 'alt',
     captionDelay: 250,
   });

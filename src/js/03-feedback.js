@@ -58,5 +58,6 @@ function updatePageFields() {
   }
 }
 
+updatePageFields()
 document.addEventListener('DOMContentLoaded', updatePageFields);
 
