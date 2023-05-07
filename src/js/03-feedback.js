@@ -3,11 +3,13 @@ const feedbackForm = document.querySelector('.feedback-form');
 
 // list of listeners
 
-feedbackForm.addEventListener('input', throttle(inputFunction, 500));
+feedbackForm.addEventListener('input', throttle(inputFunction, 100));
 feedbackForm.addEventListener('submit', submitFuntion);
+
 
 //function for saving current values of the form fields
 // (key for the storage "feedback-form-state")
+
 
 function inputFunction(event) {
   const { currentTarget } = event;
@@ -23,6 +25,7 @@ function inputFunction(event) {
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
+
 // function for submiting form
 function submitFuntion(event) {
   event.preventDefault();
@@ -30,7 +33,7 @@ function submitFuntion(event) {
     elements: { email, message },
   } = event.currentTarget;
   if (email.value === '' || message.value === '') {
-    window.alert('Fill in all the fields');
+  alert('Fill in all the fields');
     return;
   }
   const formData = {
@@ -55,5 +58,5 @@ function updatePageFields() {
   }
 }
 
-updatePageFields();
+document.addEventListener('DOMContentLoaded', updatePageFields);
 
